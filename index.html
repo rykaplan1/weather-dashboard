@@ -12,7 +12,7 @@
     <header>
       <h1>Weather Dashboard</h1>
     </header>
-    <maing class="row">
+    <main class="row">
       <section class ="col-3" id="search-box">
         <h2>Search for a City:</h2>
         <input type="text">
@@ -20,9 +20,9 @@
         <section id="search-history">
           <div class="button city" id="Austin">Austin</div>
           <div class="button city" id="Chicago">Chicago</div>
-          <div class="button city" id="New-York">New York</div>
+          <div class="button city" id="New+York">New York</div>
           <div class="button city" id="Orlando">Orlando</div>
-          <div class="button city" id="San-Francisco">San Francisco</div>
+          <div class="button city" id="San+Francisco">San Francisco</div>
           <div class="button city" id="Seattle">Seattle</div>
           <div class="button city" id="Denver">Denver</div>
           <div class="button city" id="Atlanta">Atlanta</div>
@@ -30,49 +30,49 @@
       </section>
       <section id="weather-results col-9">
         <section id="current-info">
-          <h2></h2>
-          <p>Temp: <span id="temp"></span></p>
-          <p>Wind: <span id="wind"></span></p>
-          <p>Humidity: <span id="humidity"></span></p>
-          <p>UV Index: <span id="uv-index"></span></p>
+          <h2><img class="weather-icon" id="#current-icon"/></h2>
+          <p>Temp: <span class="temp"></span></p>
+          <p>Wind: <span class="wind"></span></p>
+          <p>Humidity: <span class="humidity"></span></p>
+          <p>UV Index: <span class="uv-index"></span></p>
         </section>
         <section id="five-day">
           <h3>5-Day Forecast:</h3> 
-          <section id="five-day-row " class="row">
+          <section id="five-day-row" class="row">
             <div class="five-day-block col">
               <h4></h4>
-              <p class="weather-icon"></p>
-              <p>Temp: <span class="5-day-temp"></span></p>
-              <p>Wind: <span class="5-day-wind"></span></p>
-              <p>Humidity: <span class="5-day-humidity"></span></p>
+              <img class="weather-icon"/>
+              <p>Temp: <span class="temp 5-day-temp"></span></p>
+              <p>Wind: <span class="wind 5-day-wind"></span></p>
+              <p>Humidity: <span class="humidity 5-day-humidity"></span></p>
             </div>
             <div class="five-day-block col">
               <h4></h4>
-              <p class="weather-icon"></p>
-              <p>Temp: <span class="5-day-temp"></span></p>
-              <p>Wind: <span class="5-day-wind"></span></p>
-              <p>Humidity: <span class="5-day-humidity"></span></p>
+              <img class="weather-icon"/>
+              <p>Temp: <span class="temp 5-day-temp"></span></p>
+              <p>Wind: <span class="wind 5-day-wind"></span></p>
+              <p>Humidity: <span class="humidity 5-day-humidity"></span></p>
             </div>
             <div class="five-day-block col">
               <h4></h4>
-              <p class="weather-icon"></p>
-              <p>Temp: <span class="5-day-temp"></span></p>
-              <p>Wind: <span class="5-day-wind"></span></p>
-              <p>Humidity: <span class="5-day-humidity"></span></p>
+              <img class="weather-icon"/>
+              <p>Temp: <span class="temp 5-day-temp"></span></p>
+              <p>Wind: <span class="wind 5-day-wind"></span></p>
+              <p>Humidity: <span class="humidity 5-day-humidity"></span></p>
             </div>
             <div class="five-day-block col">
               <h4></h4>
-              <p class="weather-icon"></p>
-              <p>Temp: <span class="5-day-temp"></span></p>
-              <p>Wind: <span class="5-day-wind"></span></p>
-              <p>Humidity: <span class="5-day-humidity"></span></p>
+              <img class="weather-icon"/>
+              <p>Temp: <span class="temp 5-day-temp"></span></p>
+              <p>Wind: <span class="wind 5-day-wind"></span></p>
+              <p>Humidity: <span class="humidity 5-day-humidity"></span></p>
             </div>
             <div class="five-day-block col">
               <h4></h4>
-              <p class="weather-icon"></p>
-              <p>Temp: <span class="5-day-temp"></span></p>
-              <p>Wind: <span class="5-day-wind"></span></p>
-              <p>Humidity: <span class="5-day-humidity"></span></p>
+              <img class="weather-icon"/>
+              <p>Temp: <span class="temp 5-day-temp"></span></p>
+              <p>Wind: <span class="wind 5-day-wind"></span></p>
+              <p>Humidity: <span class="humidity 5-day-humidity"></span></p>
             </div>
           </section>
         </section>
@@ -82,6 +82,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>

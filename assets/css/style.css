@@ -60,6 +60,14 @@ input {
   background-color: lightgray;
 }
 
+.five-day-block {
+  color: whitesmoke;
+  background-color: #283A5C;
+  padding: 10px;
+  margin: 10px;
+  width: 20%;
+}
+
 #search-box {
   margin-left: 10px;
 }

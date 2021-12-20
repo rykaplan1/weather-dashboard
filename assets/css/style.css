@@ -60,6 +60,13 @@ input {
   background-color: lightgray;
 }
 
+.uv-index {
+  display: inline-block;
+  padding: 0 10px;
+  color: whitesmoke;
+  border-radius: 3px;
+}
+
 .five-day-block {
   color: whitesmoke;
   background-color: #283A5C;
@@ -91,3 +98,4 @@ input {
   border: 1px solid black;
   margin-top: 5px;
 }
+

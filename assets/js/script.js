@@ -38,17 +38,44 @@ const displayWeather = (data, element, isCurrent = false) => {
   element.find('.weather-icon').attr({"src": iconURL, "alt": alt});
 
   const temp = isCurrent ? data.temp : data.temp.day;
-  element.find('.temp').text(temp);
+  element.find('.temp').prepend(temp);
 
   const wind = data.wind_speed;
-  element.find('.wind').text(wind);
+  element.find('.wind').prepend(wind);
 
   const humidity = data.humidity;
-  element.find('.humidity').text(humidity);
+  element.find('.humidity').prepend(humidity);
 
   if (isCurrent) {
     const uvIndex = data.uvi;
-    element.find('.uv-index').text(uvIndex);
+    let bgColor;
+    switch (Math.ceil(uvIndex)) {
+      case 0:
+      case 1:
+      case 2: 
+        bgColor = 'green';
+        break;
+
+      case 3:
+      case 4:
+      case 5:
+        bgColor = 'yellow';
+        break;
+      
+      case 6:
+      case 7:
+        bgColor = 'orange';
+        break;
+      
+      case 8:
+      case 9:
+      case 10:
+        bgColor = 'red';
+      
+      default:
+        bgColor = 'purple';
+    }
+    element.find('.uv-index').prepend(uvIndex).css('background-color', bgColor);
   } 
 }
 

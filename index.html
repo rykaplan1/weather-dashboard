@@ -12,8 +12,34 @@
     <header>
       <h1>Weather Dashboard</h1>
     </header>
-    <main>
-
+    <main class="row">
+      <section class ="col-3" id="search-box">
+        <h2>Search for a City:</h2>
+        <input type="text">
+        <div class="button" id="search">Search</div>
+        <section id="search-history">
+          <div class="button city" id="Austin">Austin</div>
+          <div class="button city" id="Chicago">Chicago</div>
+          <div class="button city" id="New-York">New York</div>
+          <div class="button city" id="Orlando">Orlando</div>
+          <div class="button city" id="San-Francisco">San Francisco</div>
+          <div class="button city" id="Seattle">Seattle</div>
+          <div class="button city" id="Denver">Denver</div>
+          <div class="button city" id="Atlanta">Atlanta</div>
+        </section>
+      </section>
+      <section id="weather-results col-9">
+        <section id="current-info">
+          <h2></h2>
+          <p>Temp: <span id="temp"></span></p>
+          <p>Wind: <span id="wind"></span></p>
+          <p>Humidity: <span id="humidity"></span></p>
+          <p>UV Index: <span id="uv-index"></span></p>
+        </section>
+        <section id="five-day">
+  
+        </section>
+      </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

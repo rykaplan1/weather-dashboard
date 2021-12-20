@@ -32,6 +32,10 @@ h1, h4 {
   color: whitesmoke;
 }
 
+h4 {
+  overflow-wrap: break-word;
+}
+
 input {
   width: 100%;
   font-size: 1.1rem;
@@ -99,3 +103,6 @@ input {
   margin-top: 5px;
 }
 
+#current-info h2 {
+  display: inline-block;
+}

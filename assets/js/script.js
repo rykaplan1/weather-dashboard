@@ -3,13 +3,18 @@ const apiKey = '52655da77e33cf3f2f5642ecaeb48812';
 let city;
 
 //Functions
-const searchCity = (city) => {
+
+const searchCity = () => {
   fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => {
-    const lat = data[0].lat;
-    const lon = data[0].lon;
-    searchWeather(lat, lon);
+    if (data.length > 0) {
+      const lat = data[0].lat;
+      const lon = data[0].lon;
+      searchWeather(lat, lon);
+    } else {
+      alert("No results. Consider checking your spelling and capitalization.");
+    }
   });
 }
 
@@ -30,7 +35,7 @@ const displayWeather = (data, element, isCurrent = false) => {
   const dateCode = data.dt;
   const date = moment.unix(dateCode).format("MM/DD/Y");
   const title = isCurrent ? `${city} (${date})` : date;
-  element.children('h2, h4').prepend(title);
+  element.children('h2, h4').text(title);
 
   const icon = data.weather[0].icon;
   const iconURL = `http://openweathermap.org/img/w/${icon}.png`;
@@ -38,13 +43,13 @@ const displayWeather = (data, element, isCurrent = false) => {
   element.find('.weather-icon').attr({"src": iconURL, "alt": alt});
 
   const temp = isCurrent ? data.temp : data.temp.day;
-  element.find('.temp').prepend(temp);
+  element.find('.temp').text(temp);
 
   const wind = data.wind_speed;
-  element.find('.wind').prepend(wind);
+  element.find('.wind').text(wind);
 
   const humidity = data.humidity;
-  element.find('.humidity').prepend(humidity);
+  element.find('.humidity').text(humidity);
 
   if (isCurrent) {
     const uvIndex = data.uvi;
@@ -75,7 +80,7 @@ const displayWeather = (data, element, isCurrent = false) => {
       default:
         bgColor = 'purple';
     }
-    element.find('.uv-index').prepend(uvIndex).css('background-color', bgColor);
+    element.find('.uv-index').text(uvIndex).css('background-color', bgColor);
   } 
 }
 
@@ -94,3 +99,21 @@ navigator.geolocation.getCurrentPosition(position => {
 }, error => {});
 
 //Event Listeners
+
+$('#search').click(function() {
+  city = $('input').val();
+  if (!city) {
+    alert("Please enter a city.")
+  } else if (!/^[a-zA-Z\s]*$/.test(city)) {
+    alert("Please enter a valid city.")
+  } else {
+    $('#weather-results').find("h2, h4, span").text('');
+    searchCity();
+  }
+});
+
+$('.city').click(function() {
+  city = $(this).attr('id');
+  $('#weather-results').find("h2, h4, span").text('');
+  searchCity();
+});

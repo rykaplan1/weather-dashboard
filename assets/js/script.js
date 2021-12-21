@@ -1,4 +1,5 @@
 //Global Variables
+const apiKey = '52655da77e33cf3f2f5642ecaeb48812';
 let city;
 
 //Functions

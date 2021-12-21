@@ -3,6 +3,14 @@ const apiKey = '52655da77e33cf3f2f5642ecaeb48812';
 let city;
 
 //Functions
+const createHistoryButton = (id) => {
+  const historyButton = $('<div>', {'class': 'button city', 'id': id}).text(id).click(function() {
+    city = $(this).attr('id');
+    $('#weather-results').find("h2, h4, span").text('');
+    searchCity();
+  });
+  $('#search-history').prepend(historyButton);
+}
 
 const searchCity = () => {
   fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
@@ -85,6 +93,11 @@ const displayWeather = (data, element, isCurrent = false) => {
 }
 
 //Run on initial load
+const searchHistory = JSON.parse(localStorage.getItem('cityHistory'));
+for (let i = 0; i < searchHistory.length; i++) {
+  createHistoryButton(searchHistory[i]);
+}
+
 $('#current-info, #five-day').css('visibility', 'hidden');
 navigator.geolocation.getCurrentPosition(position => {
   const currentLat = position.coords.latitude;
@@ -117,12 +130,7 @@ $('#search').click(function() {
     if (!cityHistory.includes(city)) {
       cityHistory.push(city);
       localStorage.setItem('cityHistory', JSON.stringify(cityHistory));
-      const historyButton = $('<div>', {'class': 'button city', 'id': city}).text(city).click(function() {
-        city = $(this).attr('id');
-        $('#weather-results').find("h2, h4, span").text('');
-        searchCity();
-      });
-      $('#search-history').prepend(historyButton);
+      createHistoryButton(city);
     }
   }
 });

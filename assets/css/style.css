@@ -96,6 +96,7 @@ input {
   border-top: 1px solid black;
   padding: 0px;
   overflow-y: scroll;
+  height: 65%;
 }
 
 #current-info {

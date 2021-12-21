@@ -109,6 +109,21 @@ $('#search').click(function() {
   } else {
     $('#weather-results').find("h2, h4, span").text('');
     searchCity();
+    if (!localStorage.getItem('cityHistory')) {
+      localStorage.setItem('cityHistory', '[]');
+    }
+    const cityHistory = JSON.parse(localStorage.getItem('cityHistory'));
+    console.log(cityHistory.includes(city));
+    if (!cityHistory.includes(city)) {
+      cityHistory.push(city);
+      localStorage.setItem('cityHistory', JSON.stringify(cityHistory));
+      const historyButton = $('<div>', {'class': 'button city', 'id': city}).text(city).click(function() {
+        city = $(this).attr('id');
+        $('#weather-results').find("h2, h4, span").text('');
+        searchCity();
+      });
+      $('#search-history').prepend(historyButton);
+    }
   }
 });
 

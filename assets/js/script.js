@@ -13,7 +13,7 @@ const createHistoryButton = (id) => {
 }
 
 const searchCity = () => {
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => {
     if (data.length > 0) {
@@ -27,7 +27,7 @@ const searchCity = () => {
 }
 
 const searchWeather = (lat, lon) => {
-  fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => populatePage(data));
 }
@@ -46,7 +46,7 @@ const displayWeather = (data, element, isCurrent = false) => {
   element.children('h2, h4').text(title);
 
   const icon = data.weather[0].icon;
-  const iconURL = `http://openweathermap.org/img/w/${icon}.png`;
+  const iconURL = `https://openweathermap.org/img/w/${icon}.png`;
   const alt = data.weather[0].description;
   element.find('.weather-icon').attr({"src": iconURL, "alt": alt});
 
@@ -102,7 +102,7 @@ $('#current-info, #five-day').css('visibility', 'hidden');
 navigator.geolocation.getCurrentPosition(position => {
   const currentLat = position.coords.latitude;
   const currentLon = position.coords.longitude;
-  fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${currentLat}&lon=${currentLon}&limit=1&appid=${apiKey}`)
+  fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${currentLat}&lon=${currentLon}&limit=1&appid=${apiKey}`)
   .then(response => response.json())
   .then(data => {
     city = data[0].name;

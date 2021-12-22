@@ -93,7 +93,7 @@ const displayWeather = (data, element, isCurrent = false) => {
 }
 
 //Run on initial load
-const searchHistory = JSON.parse(localStorage.getItem('cityHistory'));
+const searchHistory = JSON.parse(localStorage.getItem('cityHistory')) || [];
 for (let i = 0; i < searchHistory.length; i++) {
   createHistoryButton(searchHistory[i]);
 }
